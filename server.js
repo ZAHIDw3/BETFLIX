@@ -1,6 +1,7 @@
 const express = require('express')
 const clientelaRouter = require('./routes/clientela')
 const cintaRouter = require('./routes/cinta')
+const coleccionRouter = require('./routes/coleccion')
 const cors = require("cors")
 
 class Server{
@@ -9,6 +10,7 @@ class Server{
         this.paths ={
             clientela:"/betflix/clientela",
             cinta:"/betflix/cinta",
+            coleccion:"/betflix/coleccion",
         }
         this.middlewares()
         this.routes()
@@ -17,6 +19,7 @@ class Server{
     routes(){      
        this.app.use(this.paths.clientela, clientelaRouter)
        this.app.use(this.paths.cinta, cintaRouter)
+       this.app.use(this.paths.coleccion, coleccionRouter)
     }
 
     middlewares(){
